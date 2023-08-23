@@ -5,15 +5,15 @@ import './styles.css';
 // import App from './App';
 import Header from './Header';
 import Body from './Body';
+import Bottom from './Bottom';
 import reportWebVitals from './reportWebVitals';
-
-
+import SideButton from './SideButton';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Header />
       <Body/>
+      <SideButton/>
   </React.StrictMode>
 );
 

@@ -3,7 +3,7 @@ import Picture from './Picture';
 // import FontAwesomeIcon from './FontAwesomeIcon';
 import Menu from './Menu';
 import ContactInfo from './ContactInfo';
-export default function Bottom (){
+export default function Bottom ({onButtonClick}){
     const bottomBackground = {
         backgroundImage: `url('/MSushi/asfalt-light1.png')`,
         backgroundSize: 'auto 100%',
@@ -12,6 +12,7 @@ export default function Bottom (){
         backgroundPosition: 'center',
         width: "100%",
         height: "100%",
+        maxWidth: "100vw",
 
     };
     const bottomContainer = {
@@ -19,9 +20,9 @@ export default function Bottom (){
         width: '100%',
     };
     const styleBottom= {
-        display : "flex", 
+        display : "block", 
         color: "white",
-        width: '100%',
+        maxWidth: '100vh',
         marginTop : "50px",
     }
     const underline = {
@@ -42,7 +43,7 @@ export default function Bottom (){
                 <div style = {styleBottom}>
                     <Picture imageName = {"footer-logo.png"}
                          style={{marginLeft: "5vw"}}/>
-                    <Menu inputStyle={"bottomStyle"}/>
+                    <Menu inputStyle={"bottomStyle"} onButtonClickMenu={onButtonClick}/>
                     
                     <div>
                         <p>CONTACT</p>

@@ -1,5 +1,9 @@
 import {useState} from 'react';
-export default function Menu({inputStyle}){
+import SingleLabel from "./SingleLabel";
+export default function Menu({inputStyle , onButtonClickMenu}){
+    
+ 
+
     const Pages = [{label: "Home"},
                    {label: "About Us"}, 
                    {label: "Services"}, 
@@ -19,7 +23,7 @@ export default function Menu({inputStyle}){
         fontSize: "14px",
         textShadow: "2px 2px 4px #000",
         marginRight: "50px",
-        marginTop: "10px",
+        marginTop: "0vh",
         marginBottom: "10px",
         float: "right",
         gap: "32px",
@@ -44,36 +48,9 @@ export default function Menu({inputStyle}){
       return (
         <div style={select}>
           {Pages.map((page, index) => (
-            <SingleLabel key={index} label={page.label} />
-          ))}
+            <SingleLabel key={index} label={page.label} onLabelClick={onButtonClickMenu} />
+            ))
+          }
         </div>
       );
     };
-    
-    const SingleLabel = ({ label }) => {
-      const [isHovered, setIsHovered] = useState(false);
-    
-      const handleMouseEnter = () => {
-        setIsHovered(true);
-      };
-    
-      const handleMouseLeave = () => {
-        setIsHovered(false);
-      };
-    
-      const buttomHoveredStyle = {
-        color: isHovered ?  "#e7b101": "white" ,
-        transition: "color 0.2s cubic-bezier(0.42, 0, 0.58, 1)", 
-      };
-    
-      return (
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          style={buttomHoveredStyle}
-        >
-          {label}
-        </div>
-      );
-    };
-    

@@ -10,16 +10,16 @@ export default function ContactInfo(){
     ]
 
     return (
-        <div>
+        <div style={{color:"white", width:"100vw"}}>
             {ContactInfo.map(info => (
                 <div key={info.city}>
-                    <p>
+                    <div style={{margin:"auto"}}>
                         {info.cityFull} 
                         <FontAwesomeIcon iconName="phone" /> 
                         {info.tel} 
                         <FontAwesomeIcon iconName="envelope" /> 
                         {info.email}
-                    </p>
+                    </div>
                 </div>
             ))}
         </div>
