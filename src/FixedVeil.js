@@ -25,7 +25,7 @@ export default function FixedVeil() {
   }, []);
 
   const veilHideStyle = {
-    position: 'fixed',
+    position: 'fixed', 
     zIndex: zIndex,
     width: '100vw',
     height: '100vh',
