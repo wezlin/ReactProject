@@ -40,7 +40,7 @@ export default function NavBar({onButtonClick}){
         position: "fixed",
         backgroundColor: "rgba(0,0,0,0.7)",
         borderBottom: "2px solid #aa0d34",
-        transition: "background-color 1s linear, height 0.5s ease-in-out", 
+        transition: "background-color 0.5s linear", 
     };
 
 

@@ -41,3 +41,29 @@ code {
 	/* z-index:1; */
 }
 
+.middle2Title{
+  font-size: 36px;
+  display: block;
+  width: 80%;
+  margin:auto auto;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  /* color: #fff; */
+  z-index: 3;
+  padding:60px;
+}
+
+.middle2Content {
+  font-size: 14px;
+  z-index: 3;
+  position: relative;
+  text-align: center;
+  padding-bottom: 70px;
+  width: 80vw;
+  margin: 0 auto;
+}
+
