@@ -28,7 +28,7 @@ export default function Button({inputString, handleMouseClick, label, onClickURL
 
       const onClickControl = () => {
         if (isLink) {
-          onClickControl();
+          onClickURL();
         }
         else{
           handleMouseClick(label)

@@ -60,7 +60,7 @@ function Middle(){
                 />
             </div>
 
-            <div style={{height:"500px", width:"100%",backgroundColor: "pink",}}>
+            <div style={{height:"500px", width:"100%"}}>
                 <YoutubeVideo/>
             </div>
             <div style={textCoverPic}>
