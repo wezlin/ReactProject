@@ -2,10 +2,10 @@
 import Picture from './Picture';
 // import FontAwesomeIcon from './FontAwesomeIcon';
 import Menu from './Menu';
-import ContactInfo from './ContactInfo';
+import ContactInfoBottom from './ContactInfoBottom';
 export default function Bottom ({onButtonClick}){
     const bottomBackground = {
-        backgroundImage: `url('/MSushi/asfalt-light1.png')`,
+        backgroundImage:`url(${process.env.PUBLIC_URL}/MSushi/asfalt-light1.png)`,
         backgroundSize: 'auto 100%',
         backgroundRepeat: 'repeat',
         backgroundColor: "#222222",
@@ -17,13 +17,19 @@ export default function Bottom ({onButtonClick}){
     };
     const bottomContainer = {
         display : "flex", 
-        width: '100%',
+        width: '100vw',
+        // backgroundColor: "green",
     };
     const styleBottom= {
-        display : "block", 
+        display : "flex", 
         color: "white",
-        maxWidth: '100vh',
-        marginTop : "50px",
+        maxWidth: '100%',
+        marginTop : "20px",
+        marginBottom : "20px",
+        // backgroundColor : "yellow",
+        marginLeft: "auto",
+        marginRight: "auto",
+        
     }
     const underline = {
         left: "0",
@@ -32,9 +38,13 @@ export default function Bottom ({onButtonClick}){
         height: "3px",
         color: "red",
         backgroundColor: "#ebebeb",
-        marginTop: "0.5em",
+        marginTop: "0.3em",
+        marginBottom: "0.5em",
     };
-
+    const contactStyle = {
+        // backgroundColor : "pink",
+        width: "500px",
+    };
 
     return (
         <div style={bottomBackground}>
@@ -43,12 +53,12 @@ export default function Bottom ({onButtonClick}){
                 <div style = {styleBottom}>
                     <Picture imageName = {"footer-logo.png"}
                          style={{marginLeft: "5vw"}}/>
-                    <Menu inputStyle={"bottomStyle"} onButtonClickMenu={onButtonClick}/>
+                    <Menu menuPosition={"bottomStyle"} onButtonClickMenu={onButtonClick}/>
                     
-                    <div>
-                        <p>CONTACT</p>
+                    <div style={contactStyle}>
+                        <div>CONTACT</div>
                         <div style={underline}></div>
-                        <ContactInfo/>
+                        <ContactInfoBottom/>
                     </div>
                 </div>
             </div>

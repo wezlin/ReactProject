@@ -13,7 +13,7 @@ export default function SingleLabel({ label, onLabelClick }) {
         };
       
         const buttomHoveredStyle = {
-          color: isHovered ?  "#e7b101": "white" ,
+          color: isHovered ?  "#e7b101": "white",
           transition: "color 0.2s cubic-bezier(0.42, 0, 0.58, 1)", 
         };
       

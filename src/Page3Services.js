@@ -4,7 +4,7 @@ import FontAwesomeIcon from './FontAwesomeIcon';
 import Bottom from './Bottom';
 import TopVideo from './TopVideo'
 
-export default function Home(){
+export default function Page3Services(){
 
     return (
         <div>
@@ -22,13 +22,13 @@ export default function Home(){
 function Middle(){
 
     const middleStyle = {
-        width: "100vw",
-        margin: "0 auto",  
+        width: "90vw",
+        // margin: "0 auto",  
        //  display: "flex",
         justifyContent: "space-between", 
-        marginLeft: "2vw",
-        marginRight: "2vw",
-        gap: "2vw",
+        // marginLeft: "auto",
+        // marginRight: "auto",
+        // gap: "2vw",
     }
     const stringStyle2 = {
         fontSize: "14px",

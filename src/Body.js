@@ -7,7 +7,7 @@ import Page2AboutUs from './Page2AboutUs';
 import Page3Services from './Page3Services';
 import Page4Menu from './Page4Menu';
 import Page5Testimonials from './Page5Testimonials';
-import Header from './Header';
+import NavBar from './NavBar';
 import FixedVeil from './FixedVeil';
 // import Page6Social from './Page6Social';
 // import Page7Blog from './Page7Blog';
@@ -35,13 +35,13 @@ export default function Body(){
             break;
         // Add more cases for other pages if needed
         default:
-            content = <Page1Home />;
+            content = <Page1Home onButtonClick={handleButtonClick}/>;
     }
 
     return (
         <div>
             <FixedVeil key={reDirection} />
-            <Header onButtonClick={handleButtonClick}/>
+            <NavBar onButtonClick={handleButtonClick}/>
             {content}
             {/* <Page1Home/> */}
             {/* <Page2AboutUs/> */}

@@ -3,7 +3,7 @@ import Picture from './Picture';
 import FontAwesomeIcon from './FontAwesomeIcon';
 import Button from './Button';   
 import TopVideo from './TopVideo';
-export default function AboutUs(){
+export default function Page2AboutUs(){
     
     return (
         <div>
@@ -18,34 +18,67 @@ export default function AboutUs(){
 
 function Middle(){
 
-    
+    const handleButtonClick = () => {
+        window.open('http://voyagela.com/interview/meet-jackson-mou-sushi-private-catering-orange-county/', '_blank');
+    };
+    const sectionTitleStyle = {
+        fontWeight: "bold",
+    };
+    const textCoverPic ={
+        display: "block",
+        textAlign: "justify",
+        margin: '40px', 
+    };
+
+    const middle2ContainerStyle = {
+        position: "relative",
+        overflow: "hidden", 
+    };
+      
+
     return (
-
-        <div>
-
-            <Picture imageName={"rsz_client-img.jpg"}/>
-            
-            <div className="middle2Content">
-                <p>Quality Japanese Food Catering in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel, all of Southern California, and Vancouver Canada</p>
-                <p>Jackson Mou has 20 years of experience working in 5-star restaurants. When he was a teenager, Jackson worked as a sushi apprentice at the prestigious Hatsuhana Kaiseki restaurant in New York. At that time, Hatsuhana was among the top ten Kaiseki cuisine restaurants in New York. His experience there drove his passion as he learned and perfected his art as a Kaiseki chef.</p>
-                <p>After Hatsuhana, Jackson continued working in 5-star restaurants, gaining so much respect for his expertise that he began consulting for high class eateries. He worked hard training the finest restaurants on topics like menu development, management, and educating rising sushi chefs. He has since helped over 150 restaurants successfully grow. In addition to Japanese, Jackson became an expert in French, Spanish, and Italian cuisine. This has become a staple aspect of his creative culinary design as he mixes the most refined tastes of each style in with his Japanese fusion. He’s received notoriety for his signature sushi designs that can’t be found anywhere else in the world.</p>
-                <p>Jackson Mou founded M’s Sushi Catering in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel and all of Southern California, with the idea that fine sushi is an experience that should be shared with family and friends through the quality japanese food catering services. Complete with sauces that enliven the flavor of fish, you now have the opportunity to get the best japanese food catering service with only freshest cuts of fish, caught in their natural regions at the perfect time in their life cycle, catered to your next party or event wherever you are in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel and all of Southern California.</p>
+        <div style={middle2ContainerStyle}>
+        <div >
+            <div style={textCoverPic}>
+                <Picture imageName={"rsz_client-img.jpg"} 
+                         style={{width:"40vw", 
+                                height: "auto", 
+                                float :"left",
+                                margin: "20px",}}/>   
+                <div  >
+                    <p style={sectionTitleStyle}>Quality Japanese Food Catering in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel, all of Southern California, and Vancouver Canada</p>
+                    <p>Jackson Mou has 20 years of experience working in 5-star restaurants. When he was a teenager, Jackson worked as a sushi apprentice at the prestigious Hatsuhana Kaiseki restaurant in New York. At that time, Hatsuhana was among the top ten Kaiseki cuisine restaurants in New York. His experience there drove his passion as he learned and perfected his art as a Kaiseki chef.
+                    <br/>After Hatsuhana, Jackson continued working in 5-star restaurants, gaining so much respect for his expertise that he began consulting for high class eateries. He worked hard training the finest restaurants on topics like menu development, management, and educating rising sushi chefs. He has since helped over 150 restaurants successfully grow. In addition to Japanese, Jackson became an expert in French, Spanish, and Italian cuisine. This has become a staple aspect of his creative culinary design as he mixes the most refined tastes of each style in with his Japanese fusion. He's received notoriety for his signature sushi designs that can't be found anywhere else in the world.
+                    <br/>Jackson Mou founded M's Sushi Catering in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel and all of Southern California, with the idea that fine sushi is an experience that should be shared with family and friends through the quality japanese food catering services. Complete with sauces that enliven the flavor of fish, you now have the opportunity to get the best japanese food catering service with only freshest cuts of fish, caught in their natural regions at the perfect time in their life cycle, catered to your next party or event wherever you are in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel and all of Southern California.</p>
+                </div>
             </div>
-            <Button inputString={"AS FEATURED IN VOYAGELA"}/>
-            <YoutubeVideo/>
 
-
-            <Picture imageName={"IMG_7696-683x1024.jpg"}/>
-
-            <div className="middle2Content">
-                <p>Quality Japanese Food Catering in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel, all of Southern California, and Vancouver Canada</p>
-                <p>Chef Kai started his sushi journey 15 years ago when he was rigorously trained by the best sushi chefs from a top sushi restaurant in Los Angles.</p>
-                <p>Later, he moved to Florida and Colorado, where he learned about local foods and helped several local sushi restaurants improve their sushi service.</p>
-                <p>After years of moving around and helping many restaurants succeed, he decided to come back to where it started and settled down in LA.</p>
-                <p>In 2016, Kai encountered M’sushi Private Catering, a sushi private catering company that uses only the finest and freshest ingredients and brings the best sushi experience to its clients. Kai chimed in instantly with the philosophy of M’sushi and became a core member of the company very fast.</p>
-                <p>Now, Kai is fully living his sushi dream and feels happy to rise early in the morning every day to hand pick the best fish in the fish market to serve to his clients at the day’s event. For Kai, best quality sushi comes from the best ingredients, and nothing beats the moment when a client truly enjoys the sushi.</p>  
+            <div style={{marginTop:"50px", marginBottom:"50px",}}>
+                <Button inputString={"AS FEATURED IN VOYAGELA"}
+                        onClickURL={handleButtonClick}
+                        isLink = {"true"}
+                />
             </div>
-            
+
+            <div style={{height:"500px", width:"100%",backgroundColor: "pink",}}>
+                <YoutubeVideo/>
+            </div>
+            <div style={textCoverPic}>
+                <Picture imageName={"IMG_7696-683x1024.jpg"} 
+                         style={{width:"40vw", 
+                                height:"auto", 
+                                float:"right",
+                                margin: "20px"}}/>
+                <div  >
+                    <p style={sectionTitleStyle}>Quality Japanese Food Catering in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel, all of Southern California, and Vancouver Canada</p>
+                    <p>Chef Kai started his sushi journey 15 years ago when he was rigorously trained by the best sushi chefs from a top sushi restaurant in Los Angles.</p>
+                    <p>Later, he moved to Florida and Colorado, where he learned about local foods and helped several local sushi restaurants improve their sushi service.</p>
+                    <p>After years of moving around and helping many restaurants succeed, he decided to come back to where it started and settled down in LA.</p>
+                    <p>In 2016, Kai encountered M'sushi Private Catering, a sushi private catering company that uses only the finest and freshest ingredients and brings the best sushi experience to its clients. Kai chimed in instantly with the philosophy of M’sushi and became a core member of the company very fast.</p>
+                    <p>Now, Kai is fully living his sushi dream and feels happy to rise early in the morning every day to hand pick the best fish in the fish market to serve to his clients at the day’s event. For Kai, best quality sushi comes from the best ingredients, and nothing beats the moment when a client truly enjoys the sushi.</p>  
+                </div>
+            </div>
+        </div>
         </div>
     )
 }
@@ -58,6 +91,10 @@ function YoutubeVideo(){
     const utubeStyle = {
         display: "flex",
         justifyContent: "center",
+        width: "70vw",
+        height: "auto",
+        marginLeft: "auto",
+        marginRight: "auto",
     };
 
     return (

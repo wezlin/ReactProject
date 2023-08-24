@@ -2,10 +2,21 @@
 
 export default function TopVideo({StringTitle, VideoURL}) {
 
+    const topContainerStyle = {
+        width: '100%',
+        maxWidth: '100vw',
+        overflow: 'hidden',
+        height: '340px',
+        top : '0',
+        // backgroundColor : 'pink',
+    }
+
     const videoContainerStyle = {
         width: '100%',
-        maxWidth: '100%',
+        maxWidth: '100vw',
         overflow: 'hidden',
+        height: '340px',
+        // backgroundColor : 'gray',
       };
       
       const videoStyle = {
@@ -13,29 +24,44 @@ export default function TopVideo({StringTitle, VideoURL}) {
         maxHeight: "100vh",
         overflow: 'hidden',
         objectFit: 'cover',
+        // opacity: '0',
+        overflow :'hidden',
       };
-    const innerTitleMain = {
-        position: "absolute",
-        top: "300px",
-        width: "65%",
-        textAlign: "center",
-        textTransform: "uppercase",
-        left: "50vw",
-        transform: "translate(-50%, 0)",
-        opacity: "0.8",
-        color: "#fff",
-        fontSize: "48px",
-        textShadow: "5px 5px 10px #000",
+      const innerTitleContainer = {
+        width: '100%', // Adjust the width if needed
+        height: 'auto', // Adjust the height if needed
+        backgroundColor: 'green',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        
 
-        marginTop :"20px",
-        marginBottom: "10px",
+      }
+    const innerTitleMain = {
+
+        // backgroundColor: "red",
+        textAlign: "center",
+        justifyContent: "center",
+        display: 'flex',
+        textTransform: "uppercase",
+        opacity: "0.8",
+        fontSize: "48px",
         fontWeight: "500",
-        fontHeight: "1.1"
+        fontHeight: "1.1",
+        textShadow: "5px 5px 10px #000",
+        color: "#fff",
+        position: "absolute",
+        marginRight: "auto",
+        marginLeft: "auto",
+        width: "65%",
+        top: "120px", 
+  
+
     };
     
 
     return (
-        <div >
+        <div style = {topContainerStyle}>
             <div style = {videoContainerStyle}>
                 <video 
                     playsInline 
@@ -48,7 +74,9 @@ export default function TopVideo({StringTitle, VideoURL}) {
                     type="video/mp4" />
                 </video>
             </div>
-            <p style={innerTitleMain}>{StringTitle}</p>
+            <div style= {innerTitleContainer}>
+                <p style={innerTitleMain}>{StringTitle}</p>
+            </div>
         </div>
     );
 }

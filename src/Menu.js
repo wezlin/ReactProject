@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import SingleLabel from "./SingleLabel";
-export default function Menu({inputStyle , onButtonClickMenu}){
+export default function Menu({menuPosition, onButtonClickMenu}){
     
  
 
@@ -8,7 +8,7 @@ export default function Menu({inputStyle , onButtonClickMenu}){
                    {label: "About Us"}, 
                    {label: "Services"}, 
                    {label: "Menu"}, 
-                   {label: "Testimnials"}, 
+                   {label: "Testimonials"}, 
                    {label: "Social"}, 
                    {label: "Blog"}, 
                    {label: "Contact"}
@@ -19,27 +19,38 @@ export default function Menu({inputStyle , onButtonClickMenu}){
     const headerStyle = {
         display : "flex", 
         color: "black",
+        height: "100%",
         fontWeight: "normal",
-        fontSize: "14px",
+        fontSize: "16px",
         textShadow: "2px 2px 4px #000",
         marginRight: "50px",
-        marginTop: "0vh",
         marginBottom: "10px",
         float: "right",
-        gap: "32px",
+        gap: "10px",
+        // backgroundColor: "rgba(0,2,2,0.5)",
+        // backgroundColor: "red",
+        justifyContent : "flex-end",
     }
     const bottomStyle = {
         display: 'grid', 
+        fontWeight: "normal",
+        color: "black",
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: '0em', 
-        width: "25%",
-        height: "150px",
+        width: "30%",
+        textShadow: "2px 2px 4px #000",
+        height: "50px",
+        gap: "15px",
+        marginLeft: "3vw",
+        marginRight: "7vw",
+        fontSize: "14px",
         color: "white",
+
     };
 
-    if (inputStyle === "headerMenu") {
+    if (menuPosition === "headerMenu") {
         select = headerStyle;
-      } else if (inputStyle === "bottomStyle") {
+      } else if (menuPosition === "bottomStyle") {
         select = bottomStyle;
         Pages.pop();
         Pages.pop();

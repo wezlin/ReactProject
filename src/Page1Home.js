@@ -5,7 +5,7 @@ import Bottom from './Bottom';
 import Button from './Button';
 import TopVideo from './TopVideo';
 
-export default function Home(){
+export default function Page1Home({ onButtonClick }){
 
     return (
         <div>
@@ -13,7 +13,7 @@ export default function Home(){
                 StringTitle='"THE ONLY SUSHI SERVICE WITH EXCLUSIVE QUALITY"'  
                 VideoURL="https://sushiprivatecater.com/wp-content/uploads/2017/12/Private-sushi-catering-website.mp4"
             />
-            <Middle/>
+            <Middle onButtonClickMiddle={onButtonClick} />
             <Middle2/>
             <Bottom1/>
         </div>
@@ -23,7 +23,7 @@ export default function Home(){
 
 
 
-function Middle(){
+function Middle({onButtonClickMiddle}){
 
     
     return (
@@ -47,7 +47,9 @@ function Middle(){
                 <MiddleObject imageName={"service-img3.jpg"} stringA={"Corporate Events"} stringB= {"There’s no better way to dazzle your supervisors and boost employee morale than offering one-of-a-kind sushi catering at your next corporate event."}/>
                 <MiddleObject imageName={"service-img4.jpg"} stringA={"Large Event Planning"} stringB= {"M Sushi Catering is scaled to handle large events where multiple caterings are required. We’re happy to collaborate with large event planners."}/> 
             </div>
-            <Button inputString={"Read more"}/>
+            <Button inputString={"Read more"} 
+                    handleMouseClick={onButtonClickMiddle} 
+                    label={"Services"} />
 
             <div className="middle2Title">
                 <p>ABOUT M'S SUSHI CATERING</p>
@@ -77,7 +79,10 @@ function Middle(){
                 <p>Discover what delicious dish he will dream up just for you. If you are in Los Angeles,</p>
                 <p>Calabasas, Irvine, Santa Monica, Laguna Niguel, Bay Area, and Vancouver Canada, and in need of a catering partner for your party, we got you covered.</p>
             </div>
-            <Button inputString={"Reserve Now"} />
+            <Button inputString={"Reserve Now"} 
+                    handleMouseClick={onButtonClickMiddle} 
+                    label={"Contact"} 
+            />
             
         </div>
     )
@@ -236,7 +241,8 @@ function MiddleGalleryImage() {
 
 function Middle2(){
     const Middle2Style = {
-        backgroundImage: "url('/MSushi/Middle2bg-image.jpeg')",
+        backgroundImage: `url(${process.env.PUBLIC_URL}/MSushi/Middle2bg-image.jpeg)`,
+        
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         position: "relative",
@@ -264,23 +270,50 @@ function Middle2(){
 
 function Bottom1(){
     const Bottom1Style = {
-        backgroundImage: `url('/MSushi/review-bg.jpg')`,
+        backgroundImage: `url(${process.env.PUBLIC_URL}/MSushi/review-bg.jpg)`,
         backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         display : "flex",
         justifyContent: "center",
         position: "relative",
+        width: "100%",
+        height: "100%",
+        // position: "relative",
+        // backgroundColor: "orange",
     };
     const BottomStringStyle ={
-        width: "50%",
-        fontSize: "54px",
-        paddingTop: "15px",
+        fontSize: "50px",
+        // paddingTop: "15px",
         color: "white", 
-    }
+        textAlign: "center",
+    };
+    const Bottom1Left = {
+        width: "50%",
+        // height:"auto",
+        // backgroundColor : "pink",
+        zIndex: "1000",
+    };
+    const Bottom1Right ={
+        display: "flex",
+        width: "50%",
+        justifyContent: "center", // x軸置中
+        // backgroundColor : "blue",
+        zIndex: "1000",
+        gap : "10px",
+        marginTop: "auto",
+        marginBottom: "auto",
+    };
+
     return (
         <div className="bottom1" style={Bottom1Style}>
-            <p style={BottomStringStyle}>WRITE A REVIEW</p>
-            <Picture imageName={"review-yelp.png"}/>
-            <Picture imageName={"google-review.png"}/>
+            
+            <div style= {Bottom1Left}>
+                <p style={BottomStringStyle}>WRITE A REVIEW</p>
+            </div>
+            <div style= {Bottom1Right}>
+                <Picture imageName={"review-yelp.png"}  style={{width:"100%", height: "autp"}}/>
+                <Picture imageName={"google-review.png"} style={{width:"100%", height: "autp"}}/>
+            </div>
         </div>
     )
 }
