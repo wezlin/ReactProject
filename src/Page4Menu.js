@@ -75,14 +75,17 @@ function MenuObject(){
 
 function MenuContent() {
 
-    const useLocalHost = false ; 
+    const useLocalHost = fals ; 
     let endPointUrl;
 
     if (useLocalHost){
          endPointUrl = 'http://localhost:3001/process-form';
     }
     else {
-        endPointUrl = 'http://18.188.144.103:3001/process-form';
+
+
+
+        endPointUrl = 'http://18.119.129.91:3001/process-form';
     }
 
 
@@ -99,6 +102,7 @@ function MenuContent() {
             body: formData,
         });
     
+        
         if (response.ok) {
             console.log('Form data sent successfully');
         } else {
