@@ -26,7 +26,7 @@ export default function SideButton(){
                         }}>  
             <SideIcon faIconName="instagram" 
                       backgroundColor="#125688"
-                      URL="https://www.facebook.com/SushiPrivateChef"/>
+                      URL="https://www.instagram.com/sushiprivatecatering/"/>
         </div>
         <div style = {{
                     ...sideButtonStyle,
@@ -34,7 +34,7 @@ export default function SideButton(){
                         }}>
             <SideIcon faIconName="yelp" 
                       backgroundColor="#c12026"
-                      URL="https://www.facebook.com/SushiPrivateChef"/>
+                      URL="https://www.yelp.com/biz/sushi-private-catering-los-angeles"/>
         </div>
         </div>
     )
