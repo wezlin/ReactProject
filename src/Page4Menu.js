@@ -82,7 +82,7 @@ function MenuContent() {
          endPointUrl = 'http://localhost:3001/process-form';
     }
     else {
-        endPointUrl = 'http://18.119.129.91:3001/process-form';
+        endPointUrl = 'https://18.119.129.91:3001/process-form';
     }
 
 
