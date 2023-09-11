@@ -31,7 +31,7 @@ export default function Body(){
             content = <Page3Services />;
             break;
         case 'Menu':
-            content = <Page4Menu />;
+            content = <Page4Menu  />;
             break;
         case 'Testimonials':
             content = <Page5Testimonials />;
