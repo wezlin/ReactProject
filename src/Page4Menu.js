@@ -136,7 +136,7 @@ function MenuBody({MenuType}) {
     };
 
 
-    const useLocalHost = true ; 
+    const useLocalHost = false ; 
     let endPointUrl;
 
     if (useLocalHost){
