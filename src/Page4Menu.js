@@ -165,7 +165,7 @@ function MenuBody({MenuType}) {
             console.log('Form data sent successfully');
             const responseData = await response.text();
             console.log('Backend Response:', responseData);
-            alert('Thank you for your booking; we will get in touch with you');
+            alert('Thank you for your booking; we will get in touch with you ASAP');
         } else {
             console.error('Failed to send form data');
             alert('Error 404');
