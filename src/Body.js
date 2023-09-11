@@ -21,6 +21,9 @@ export default function Body(){
     };
     var content = null; 
     switch (reDirection) {
+        case 'Home':
+            content = <Page1Home />;
+            break;
         case 'About Us':
             content = <Page2AboutUs />;
             break;
@@ -35,7 +38,6 @@ export default function Body(){
             break;
         case 'Social':
             content = <Page6Social />;
-            break;
         // Add more cases for other pages if needed
         default:
             content = <Page1Home onButtonClick={handleButtonClick}/>;

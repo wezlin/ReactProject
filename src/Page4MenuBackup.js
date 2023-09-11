@@ -1,5 +1,8 @@
 import {useState} from 'react';
 import Picture from './Picture';
+import FontAwesomeIcon from './FontAwesomeIcon';
+import Bottom from './Bottom';
+import Button from './Button';
 import TopVideo from './TopVideo';
 
 export default function Page4Menu(){
@@ -10,10 +13,6 @@ export default function Page4Menu(){
                 StringTitle="Menu"  
                 VideoURL="https://sushiprivatecater.com/wp-content/uploads/2018/02/ShortVideoclip-catering-1.mp4"
             />
-            {/* <div className="middle2Title">
-                <p >Menu</p>
-                <Picture imageName={"heading-img.png"}/>
-            </div> */}
             <Menu/>
         </div>
     )
@@ -21,122 +20,100 @@ export default function Page4Menu(){
 }
 
 
-function Menu() {
-    const menuContainerOuterStyle= {
 
-        backgroundImage: `url(${process.env.PUBLIC_URL}/MSushi/asfalt-light1.png)`,
-        backgroundSize: '50%',
-        backgroundRepeat: 'repeat',
-        backgroundColor: "#222222",
-        backgroundPosition: 'center',
-        color: "white",
+function Menu(){
 
-        width: "80%",
-        maxWidth: "700px",
-        height: "100%",
-        // backgroundColor: "yellow",
-        marginLeft:"auto",
-        marginRight:"auto",
-        marginTop : "50px",
-        marginBottom : "10px",
-    };
-    const menuContainerInnerStyle= {
-
-        width: "80%",
-        height: "100%",
-        marginLeft:"auto",
-        marginRight:"auto",
-        fontSize: "12px",
-    };
-
-    const [getMenu, setMenu] = useState("BUFFET")
     return (
-        <div style= {menuContainerOuterStyle}>
-            <MenuHeader  setMenuType = {setMenu}/>
-            <div style= {menuContainerInnerStyle}>
-                <MenuBody MenuType = {getMenu}/>
+
+        <div>
+            <div className="middle2Title">
+                <p >Menu</p>
+                <Picture imageName={"heading-img.png"}/>
             </div>
+            <MenuObject/> 
         </div>
     )
 }
 
 
-function MenuHeader({setMenuType}){
+function MenuHeader({headerName}) {
+    const [isHovered, setIsHovered] = useState(false);
+    
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+      };
+    
+      const handleMouseLeave = () => {
+        setIsHovered(false);
+      };
+    
 
-    const menuHeaderStyle = {
-        
+
+    const menuHeaderStyle= {
+        width: "55%", 
+        height: "100%",
+        textAlign:"center",
         display: "flex", 
-        width: "100%",
-        // height: "170px",
-        // borderRadius: "10px",
-        // backgroundColor: "pink",
+        alignItems: "center", 
+        justifyContent: "center",
+        color : isHovered? "black": "white",
+        backgroundColor : isHovered?  "rgba(255,255,255,0.1)": "rgb(231,177,1)",
+
     };
 
-    const [selectedTab, setSelectedTab] = useState("BUFFET");
-      const handleTabClick = (tabName) => {
-      setMenuType(tabName)
-      setSelectedTab(tabName);
-    };
-
-
-    const headers = ["BUFFET", "OMAKASE"];
-
-  
-    return  (
-        <div style={menuHeaderStyle}>
-          {headers.map((headerName) => (
-            <SingleMenuHeader
-              key={headerName}
-              headerName={headerName}
-              isSelected={selectedTab === headerName}
-              onClick={() => handleTabClick(headerName)}
-            />
-          ))}
+    return (
+        <div style={menuHeaderStyle}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}>
+                {headerName}
         </div>
     );
 }
 
-function SingleMenuHeader({ headerName, isSelected, onClick }) {
-  
-    const SingleMenuHeaderStyle = {
+
+function MenuObject(){
+    const MiddleStyle = {
+        width: "100vw",
+        // marginLeft: "auto",
+        // marginRight: "auto",
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
         
-        width: "50%",
-        height: "55px",
-        color: isSelected ? "white" : "white",
-        backgroundColor: isSelected ? "" : "#e7b101",
-        display: "flex", // 使用 Flex 布局
-        flexDirection: "column",
-        justifyContent: "center", // 垂直居中
-        textAlign: "center",
-        // borderRadius:"1px",
-        cursor: "pointer",
-      };
-    
-      return (
-        <div style={SingleMenuHeaderStyle} onClick={onClick}>
-          {headerName}
+    };
+    const MenuObjectStyle = {
+        borderRadius: "10px",
+        display: 'flex', // 使用 flexbox
+        justifyContent: 'center', // 水平置中
+        alignItems: 'center', // 垂直置中
+        backgroundImage: `url(${process.env.PUBLIC_URL}/MSushi/asfalt-light1.png)`,
+        backgroundSize: 'auto 100%',
+        backgroundRepeat: 'repeat',
+        backgroundColor: "#222222",
+        backgroundPosition: 'center',
+        width: "800px",
+        // height: "800px", // 設定高度以便垂直置中
+        color: "white",
+        marginBottom: "100px ",
+    };
+
+
+    return (
+        <div style={MiddleStyle}>
+            <div style={MenuObjectStyle}>
+                <MenuContent/>  
+            </div>
         </div>
-      );
+    );
 }
 
-function MenuBody({MenuType}) {
 
-    const headerBottomStyle= {
-        display:"flex",
-        height: "20px", 
-        width: "100%",
-        alignItems:"center",
-    };
-    const sectionStyle={
-        fontSize: "14px",
-        fontWeight: "700",
-        marginTop: "20px",
-        marginBottom : "10px",
-
-    };
+function MenuContent() {
 
 
-    const useLocalHost = true ; 
+
+
+    const useLocalHost = false ; 
     let endPointUrl;
 
     if (useLocalHost){
@@ -172,11 +149,16 @@ function MenuBody({MenuType}) {
     return (
         <form onSubmit={handleSubmit} action={endPointUrl} method="post">
             
-            <div style={headerBottomStyle}>
+            
+            <div style={{display:"flex",
+                         height: "80px", 
+                         width: "100%",
+                         alignItems:"center",}}>
+                <MenuHeader headerName={"BUFFET"}/>
+                <MenuHeader headerName={"OMAKASE"}/>
             </div>
-            <input type="hidden" name="headerText" value={MenuType} />
-
-            <div style={sectionStyle}>Check Items You Like:</div>
+            
+            <div>Check Items You Like:</div>
 
                 <span class="wpcf7-list-item first"><label><input type="checkbox" name="checkbox-558[]" value="Imported Tuna / クロマグロ (本鮪)" data-gtm-form-interact-field-id="0"/><span class="wpcf7-list-item-label">Imported Tuna / クロマグロ (本鮪)</span></label></span>
             <br/><span class="wpcf7-list-item"><label><input type="checkbox" name="checkbox-558[]" value="Scottish Salmon / サーモン (鮭)"/><span class="wpcf7-list-item-label">Scottish Salmon / サーモン (鮭)</span></label></span>
@@ -190,7 +172,7 @@ function MenuBody({MenuType}) {
             <br/><span class="wpcf7-list-item last"><label><input type="checkbox" name="checkbox-558[]" value="A5-Wagyu Beef / A5-和牛"/><span class="wpcf7-list-item-label">A5-Wagyu Beef / A5-和牛</span></label></span>  
             <br/>
             
-            <br/><div style={sectionStyle}>Signature Roll:</div>
+            <br/><div>Signature Roll:</div>
 
                 <span class="wpcf7-list-item first"><label><input type="checkbox" name="checkbox-875[]" value="Salmon kiwi wrapped with spicy crab shrimp in Soy paper" data-gtm-form-interact-field-id="1"/><span class="wpcf7-list-item-label">Salmon kiwi wrapped with spicy crab shrimp in Soy paper</span></label></span>
             <br/><span class="wpcf7-list-item"><label><input type="checkbox" name="checkbox-875[]" value="Torch Salmon with pineapple miso creme sauce"/><span class="wpcf7-list-item-label">Torch Salmon with pineapple miso creme sauce</span></label></span>
@@ -204,11 +186,10 @@ function MenuBody({MenuType}) {
             <br/><span class="wpcf7-list-item last"><label><input type="checkbox" name="checkbox-875[]" value="Basic: California+shrimp tempura+Spicy tuna/salmon+Vegetarian roll"/><span class="wpcf7-list-item-label">Basic: California+shrimp tempura+Spicy tuna/salmon+Vegetarian roll</span></label></span>
             <br/>
 
-            <br/><div style={sectionStyle}>If Choosing Your Own Choice:</div>
-                <span >
-                    <input type="text" className= "page4inputBlank" name="text-546" size="40" placeholder="Insert your own choice here"/></span>
+            <br/><div>If Choosing Your Own Choice:</div>
+                <span ><input type="text" name="text-546" size="40" placeholder="Insert your own choice here"/></span>
             <br/>
-            <br/><div style={sectionStyle}>Will there be other food vendor(s)?</div>
+            <br/><div>Will there be other food vendor(s)?</div>
 
             <span class="wpcf7-form-control wpcf7-radio">
                 <span class="wpcf7-list-item first"><input type="radio" name="radio-564" value="Yes" checked="checked"/>
@@ -218,7 +199,7 @@ function MenuBody({MenuType}) {
             </span>
             <br/>
 
-            <br/><div style={sectionStyle}>Hot:</div>
+            <br/><div>Hot:</div>
                 <span class="wpcf7-list-item first"><label><input type="checkbox" name="checkbox-122[]" value="Chicken Teriyaki" data-gtm-form-interact-field-id="1"/><span class="wpcf7-list-item-label">Chicken Teriyaki</span></label></span>
             <br/><span class="wpcf7-list-item"><label><input type="checkbox" name="checkbox-122[]" value="BBQ Ribs"/><span class="wpcf7-list-item-label">BBQ Ribs</span></label></span>
             <br/><span class="wpcf7-list-item"><label><input type="checkbox" name="checkbox-122[]" value="Signature Fried Rice"/><span class="wpcf7-list-item-label">Signature Fried Rice</span></label></span>
@@ -229,7 +210,7 @@ function MenuBody({MenuType}) {
             <br/><span class="wpcf7-list-item last"><label><input type="checkbox" name="checkbox-122[]" value="Stir Fry Assorted Vegetable"/><span class="wpcf7-list-item-label">Stir Fry Assorted Vegetable</span></label></span>
             <br/>
 
-            <br/><div style={sectionStyle}>Cold:</div>
+            <br/><div>Cold:</div>
                 <span class="wpcf7-list-item first"><label><input type="checkbox" name="checkbox-384[]" value="Edamame/Soybean"/><span class="wpcf7-list-item-label">Edamame/Soybean</span></label></span>
             <br/><span class="wpcf7-list-item"><label><input type="checkbox" name="checkbox-384[]" value="Seaweed Salad"/><span class="wpcf7-list-item-label">Seaweed Salad</span></label></span>
             <br/><span class="wpcf7-list-item"><label><input type="checkbox" name="checkbox-384[]" value="Spring Mix Salad"/><span class="wpcf7-list-item-label">Spring Mix Salad</span></label></span>
@@ -241,85 +222,41 @@ function MenuBody({MenuType}) {
             <br/><span class="wpcf7-list-item"><label><input type="checkbox" name="checkbox-423[]" value="Kosher Salmon (Vegan &amp; Gluten-Free)"/><span class="wpcf7-list-item-label">Kosher Salmon (Vegan &amp; Gluten-Free)</span></label></span>
             <br/><span class="wpcf7-list-item last"><label><input type="checkbox" name="checkbox-423[]" value="Kosher Squid (Vegan &amp; Gluten-Free)"/><span class="wpcf7-list-item-label">Kosher Squid (Vegan &amp; Gluten-Free)</span></label></span>
             <br/>
-            <br/><div style={sectionStyle}>Your Name (required)</div>
-            <input type="text" name="fname" size="40" 
-                   class="page4inputBlank" 
-                   aria-required="true" 
-                   aria-invalid="false"
-                   required/>
+            <br/><div>Your Name (required)</div>
+            <input type="text" name="fname" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"/>
             
-            <br/><div style={sectionStyle}>Phone Number (required)</div>
-            <span class="wpcf7-form-control-wrap tel-324">
-                <input type="text" name="tel-324" size="40" 
-                       class="page4inputBlank" 
-                       aria-required="true" 
-                       aria-invalid="false"
-                       required/>
-            </span>
+            <br/><div>Phone Number (required)</div>
+            <span class="wpcf7-form-control-wrap tel-324"><input type="text" name="tel-324" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"/></span>
             
-            <br/><div style={sectionStyle}>Email Address (required)</div>
-            <input type="email" name="email" size="40" 
-                   class="page4inputBlank" 
-                   aria-required="true" 
-                   aria-invalid="false"
-                   required/>
+            <br/><div>Email Address (required)</div>
+            <input type="email" name="email" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"/>
             
-            <br/><div style={sectionStyle}>Estimated # of Guests</div>
-            <span class="wpcf7-form-control-wrap text-489">
-                <input type="text" name="text-489" size="40" class="page4inputBlank" aria-invalid="false"/>
-            </span>
+            <br/><div>Estimated # of Guests</div>
+            <span class="wpcf7-form-control-wrap text-489"><input type="text" name="text-489" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"/></span>
             
-            <br/><div style={sectionStyle}>Event Date</div>
-            <input type="date" name="date-507"  class="page4inputBlank" aria-invalid="false" placeholder=""/>
+            <br/><div>Event Date</div>
+            <input type="date" name="date-507"  class="wpcf7-form-control wpcf7-date wpcf7-validates-as-date" aria-invalid="false" placeholder=""/>
             
-            <br/><div style={sectionStyle}>Meal Type:</div>
-            <span class="wpcf7-form-control-wrap menu-376">
-                <select name="menu-376" class="page4inputBlank" aria-invalid="false">
-                    <option value=""></option>
-                    <option value="Appetizers/Tapas/Cocktail">
-                        Appetizers/Tapas/Cocktail
-                    </option>
-                    <option value="Full Meal Buffet Station">
-                        Full Meal Buffet Station
-                    </option>
-                </select>
-            </span>
+            <br/><div>Meal Type:</div>
+            <span class="wpcf7-form-control-wrap menu-376"><select name="menu-376" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value=""></option><option value="Appetizers/Tapas/Cocktail">Appetizers/Tapas/Cocktail</option><option value="Full Meal Buffet Station">Full Meal Buffet Station</option></select></span>
             
-            <br/><div style={sectionStyle}>Event Location</div>
-            <span class="wpcf7-form-control-wrap address">
-            <input type="text" name="eventLocation" size="40" className="page4inputBlank" aria-invalid="false"/></span>
+            <br/><div>Event Location</div>
+            <span class="wpcf7-form-control-wrap address"><input type="text" name="eventLocation" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"/></span>
 
-            <br/><div style={sectionStyle}>Street Address</div>
-            
-            <span class="wpcf7-form-control-wrap address">
-                <input type="text" name="address" size="40" className="page4inputBlank" aria-invalid="false"/>
-            </span>
+            <br/><div>Street Address</div>
+            <span class="wpcf7-form-control-wrap address"><input type="text" name="address" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"/></span>
 
-            <br/><div style={sectionStyle}>City</div>
-            <input type="text" name="city" size="40" className="page4inputBlank" aria-invalid="false"/>
+            <br/><div>City</div>
+            <input type="text" name="city" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"/>
             
-            <br/><div style={sectionStyle}>Postal / Zip Code</div>
-            <input type="text" name="zip" size="40" className="page4inputBlank" aria-invalid="false"/>
+            <br/><div>Postal / Zip Code</div>
+            <input type="text" name="zip" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"/>
             
-            <br/><div style={sectionStyle}>Additional Notes</div>
-            <textarea name="textarea-166" cols="40" rows="10" 
-                      className="page4inputBlank" 
-                      aria-invalid="false" 
-                      placeholder="Insert any additional comments here.">
-                    
-            </textarea>
+            <br/><div>Additional Notes</div>
+            <textarea name="textarea-166" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Insert any additional comments here."></textarea>
 
 
             <br/><input type="submit" value="SEND" />
-            
-            <div style={headerBottomStyle}></div>
         </form>
     );
-}
-function MenuBottom(){
-    return (
-        <div>
-
-        </div>
-    )
 }

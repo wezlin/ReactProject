@@ -67,3 +67,10 @@ code {
   margin: 0 auto;
 }
 
+
+
+.page4inputBlank{
+  border: 1px solid white;
+  background-Color :transparent;
+  color: white;
+}
