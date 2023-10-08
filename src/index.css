@@ -14,7 +14,10 @@ code {
 }
 
 
-
+a {
+  color: white; /* 設置超連結文字顏色為白色 */
+  text-decoration: none; /* 移除超連結的底線 */
+}
 
 
 

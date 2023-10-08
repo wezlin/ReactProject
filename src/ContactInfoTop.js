@@ -23,10 +23,18 @@ export default function ContactInfoTop({ style }) {
         {ContactInfo.map(info => (
           <div key={info.city} style={allStringStyle}>
             <div style={cityStyle}>{info.cityFull}</div>
-              <FontAwesomeIcon iconName="phone" />
-              {info.tel}
-              <FontAwesomeIcon iconName="envelope" />
-              {info.email}
+              <a href={`tel:${info.tel}`} >
+                <div style= {{gap:"5px",display:"flex",}}>
+                  <FontAwesomeIcon iconName="phone" />
+                  <div>{info.tel}</div>
+                </div>
+              </a>
+              <a href={`mailto:${info.tel}`} >
+                <div style= {{gap:"5px",display:"flex",}}>
+                  <FontAwesomeIcon iconName="envelope" />
+                  <div>{info.email}</div>
+                </div>
+              </a>
           </div>
         ))}
       </div>

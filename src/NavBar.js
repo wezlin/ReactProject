@@ -3,7 +3,7 @@ import Picture from './Picture';
 // import FontAwesomeIcon from './FontAwesomeIcon';
 import Menu from './Menu';
 import ContactInfoTop from './ContactInfoTop';
-
+import './styles.css';
 
 export default function NavBar({onButtonClick}){
 
@@ -22,56 +22,7 @@ export default function NavBar({onButtonClick}){
       }, []);
 
 
-      const headerStyle  = {
-        zIndex:"100", 
-        display: "flex",
-        width: "100vw",
-        // maxHeigh : "100px",
-        // height: "300px",
-        position: "fixed",
-    };
 
-    const headerStylePullDown = {
-        zIndex:"100",
-        width: "100vw",
-        // height: "200px",
-        // maxHeigh : "100px",
-        display: "flex",
-        position: "fixed",
-        backgroundColor: "rgba(0,0,0,0.7)",
-        borderBottom: "2px solid #aa0d34",
-        transition: "background-color 0.5s linear", 
-    };
-
-
-    const yelpUpperStyle = {
-        position: "relative",
-        height: "auto",
-        width: "100%",
-        maxHeight:"30px",
-        // display: "flex",
-        // marginLeft: "auto",
-        // marginRight: "auto",
-        marginTop: "50%",
-        marginBottom: "50%",
-
-    };
-    const navBarIconStyle = {
-        width:"100%", 
-        height:"auto",
-        marginTop: "20%",
-        marginBottom: "20%",
-    };
-    const NavBarPicStyle = {
-        position: "relative",
-        width: "20vw",
-        maxHeight:"60%",
-        height: "auto",
-        display: "flex",
-        // left: "5%",
-        // marginLeft: "2vw",
-        // backgroundColor: "pink",
-    };
 
     const NavContactInfoStyle = {
         position: "relative",
@@ -79,8 +30,7 @@ export default function NavBar({onButtonClick}){
         // width: "500px",
         fontWeight: "normal",
         textShadow: "2px 2px 4px #000",
-        fontSize: "16px",    
-        // alignItems: 'center',    
+        fontSize: "16px",     
         display: 'flex', 
         flexDirection: 'column', 
         overflow: 'hidden',
@@ -89,71 +39,98 @@ export default function NavBar({onButtonClick}){
 
     };
 
-    const NavBarUpperLeft = {
-        width : '30vw',
-        height: 'auto',
-        // backgroundColor : "purple",
-        marginLeft: '15px',
-    };
-
-    const NavBarUpperRight = {
-        width : '70vw',
-        height: '100px',
-        // backgroundColor : "black",
-        justifyContent: 'flex-end',        
-    };
-
-
-    const navBarUpperStyle ={
-        position: "relative",
-        display: "flex",
-        gap: "32px",
+    const headerStyle  = {
+        zIndex:"100", 
         width: "100%",
-        height: "100%",
-        // alignItems: 'center',
-        // marginTop : "2vh", 
-
-        alignItems: "center", 
-        justifyContent: "center", 
-        
-        // backgroundColor : "green",
-    }
-    
-
-    const navBarContainer = {
-        position: "relative",
-        width :"100%",
-        maxheight: "25vh",
-        height: "100%",
-        // display: "block",
-        flexDirection: "column",
-        height: "100%",
+        height: "auto",
+        position: "fixed",
         // backgroundColor: "pink",
-        
-        
     };
-    
-    var headerStyleSelector = scrollY > 230 ? headerStylePullDown : headerStyle;
+
+    const headerStylePullDown = {
+        zIndex:"100",
+        width: "100%",
+        height: "auto",
+        position: "fixed",
+        backgroundColor: "rgba(0,0,0,0.7)",
+        borderBottom: "2px solid #aa0d34",
+        transition: "background-color 0.5s linear", 
+        // backgroundColor: "pink",
+    };
 
 
+
+
+
+    const navBarUpperStyle1 ={
+        display: "flex",      
+        height: "100%",  
+        textAlign:"center",
+        display: "flex", 
+        alignItems: "center",
+        justifyContent: "center",
+    }
+
+
+    const NavBarUpperLeft1 = {
+        width: "30%",
+    };
+
+    const NavBarUpperRight1 = {
+        width: "70%",
+    };
+
+    const NavBarPicContainer = {
+        position: "relative",
+        width: "20vw",
+        height: "100%",
+        display: "flex",
+
+        textAlign:"center",
+        display: "flex", 
+        alignItems: "center",
+        justifyContent: "center",
+    };
+    const navBarIconStyle1 = {
+        width: "100%",
+        height: "auto",
+
+    };
+    const yelpUpperStyle1 = {
+        width: "100%",
+        height: "auto",
+
+    };
+    var navBarContainerStyleSelector = scrollY > 230 ? headerStylePullDown : headerStyle;
+
+
+    const navBarContainerStyle2 = {
+        // backgroundColor : "yellow",
+        
+        marginLeft : "5%",
+        marginRight: "5%",
+    };
     return (
-        <div style={headerStyleSelector} >
-            <div style ={navBarContainer}>
-                <div style={navBarUpperStyle}>
+        <div style={navBarContainerStyleSelector}>
+            <div style={navBarContainerStyle2}>    
+            
+                <div style= {navBarUpperStyle1}>
                     
-                    <div style ={NavBarUpperLeft}> 
-                        <div style={NavBarPicStyle}>
-                            <Picture imageName="cropped-logo-1.png" style={navBarIconStyle} />
-                            <YelpUpper style={yelpUpperStyle}/>
+                    <div style ={NavBarUpperLeft1}> 
+                        <div style={NavBarPicContainer}>
+                            <Picture imageName="cropped-logo-1.png" style={navBarIconStyle1} />
+                            <YelpUpper style={yelpUpperStyle1}/>
                         </div>   
                     </div>
-                    
-                    <div style= {NavBarUpperRight}>
+
+                    <div style= {NavBarUpperRight1}>
                         <ContactInfoTop style={NavContactInfoStyle}/>
                     </div>
+                    
+                    
                 </div>
-                <Menu menuPosition={"headerMenu"} onButtonClickMenu={onButtonClick}/>
             </div>
+            <Menu menuPosition={"headerMenu"} onButtonClickMenu={onButtonClick}/>
         </div>
     );
 }

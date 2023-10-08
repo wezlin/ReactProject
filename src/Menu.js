@@ -27,6 +27,7 @@ export default function Menu({menuPosition, onButtonClickMenu}){
         marginBottom: "10px",
         float: "right",
         gap: "10px",
+        marginTop : "10px",
         // backgroundColor: "rgba(0,2,2,0.5)",
         // backgroundColor: "red",
         justifyContent : "flex-end",
