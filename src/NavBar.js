@@ -130,7 +130,9 @@ export default function NavBar({onButtonClick}){
                     
                 </div>
             </div>
-            <Menu menuPosition={"headerMenu"} onButtonClickMenu={onButtonClick}/>
+            <div className="navBarStyle">
+                <Menu menuPosition={"headerMenu"} onButtonClickMenu={onButtonClick}/>
+            </div>
         </div>
     );
 }

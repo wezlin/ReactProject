@@ -3,6 +3,8 @@ import Picture from './Picture';
 // import FontAwesomeIcon from './FontAwesomeIcon';
 import Menu from './Menu';
 import ContactInfoBottom from './ContactInfoBottom';
+import './index.css';
+import './styles.css';
 export default function Bottom ({onButtonClick}){
     const bottomBackground = {
         backgroundImage:`url(${process.env.PUBLIC_URL}/MSushi/asfalt-light1.png)`,
@@ -20,17 +22,6 @@ export default function Bottom ({onButtonClick}){
         width: '100vw',
         // backgroundColor: "green",
     };
-    const styleBottom= {
-        display : "flex", 
-        color: "white",
-        maxWidth: '100%',
-        marginTop : "20px",
-        marginBottom : "20px",
-        // backgroundColor : "yellow",
-        marginLeft: "auto",
-        marginRight: "auto",
-        
-    }
     const underline = {
         left: "0",
         bottom: "-7px",
@@ -41,21 +32,25 @@ export default function Bottom ({onButtonClick}){
         marginTop: "0.3em",
         marginBottom: "0.5em",
     };
-    const contactStyle = {
-        // backgroundColor : "pink",
-        width: "500px",
-    };
+
+
 
     return (
         <div style={bottomBackground}>
             <div style={bottomContainer}>
 
-                <div style = {styleBottom}>
-                    <Picture imageName = {"footer-logo.png"}
-                         style={{marginLeft: "5vw"}}/>
-                    <Menu menuPosition={"bottomStyle"} onButtonClickMenu={onButtonClick}/>
+                <div className="styleBottom">
+                    <div className= "bottomLeftStyle">
+                        <Picture imageName = {"footer-logo.png"}
+                            style={{
+                                // marginLeft: "5vw",
+                                marginRight: "5vw",
+                                marginBottom: "50px",
+                                }}/>
+                            <Menu menuPosition={"bottomStyle"} onButtonClickMenu={onButtonClick}/>
+                    </div>
                     
-                    <div style={contactStyle}>
+                    <div className="contactStyle">
                         <div>CONTACT</div>
                         <div style={underline}></div>
                         <ContactInfoBottom/>

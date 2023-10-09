@@ -291,14 +291,14 @@ function Bottom1(){
         width: "50%",
         // height:"auto",
         // backgroundColor : "pink",
-        zIndex: "1000",
+        zIndex: "10",
     };
     const Bottom1Right ={
         display: "flex",
         width: "50%",
         justifyContent: "center", // x軸置中
         // backgroundColor : "blue",
-        zIndex: "1000",
+        zIndex: "10",
         gap : "10px",
         marginTop: "auto",
         marginBottom: "auto",
@@ -311,8 +311,8 @@ function Bottom1(){
                 <p style={BottomStringStyle}>WRITE A REVIEW</p>
             </div>
             <div style= {Bottom1Right}>
-                <Picture imageName={"review-yelp.png"}  style={{width:"100%", height: "autp"}}/>
-                <Picture imageName={"google-review.png"} style={{width:"100%", height: "autp"}}/>
+                <Picture imageName={"review-yelp.png"}  style={{width:"100%", height: "auto"}}/>
+                <Picture imageName={"google-review.png"} style={{width:"100%", height: "auto"}}/>
             </div>
         </div>
     )

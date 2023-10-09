@@ -20,7 +20,7 @@ export default function ContactInfoBottom({ style }) {
     };
 
     const FaStyle = {
-        width: "30px",
+      width: "30px",
 	    height: "30px",
 	    background: "#ebebeb",
     	borderRadius: "50%",
@@ -39,14 +39,22 @@ export default function ContactInfoBottom({ style }) {
                 <div style={cityStyle}>
                     {info.cityFull}
                 </div>
-                <div>
+
+                <a href={`tel:${info.tel}`} >
+                  <div style= {{whiteSpace: "nowrap",}}>
                     <FontAwesomeIcon iconName="phone"  style = {FaStyle}/>
                     {info.tel}
-                </div>
-                <div>
+                  </div>
+                </a>
+                <a href={`mailto:${info.tel}`} >
+                  <div style= {{whiteSpace: "nowrap",}}>
                     <FontAwesomeIcon iconName="envelope"  style = {FaStyle}/>
                     {info.email}
-                </div>
+                  </div>
+                </a>
+
+
+
           </div>
         ))}
       </div>

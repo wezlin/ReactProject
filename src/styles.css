@@ -54,3 +54,87 @@
     margin-left: 20px;
   }
   
+
+
+  .bottomLeftStyle {
+    display: flex;
+    white-space: nowrap;
+    margin-left: 50px;
+  }
+
+  .headerStyle {
+    display : flex;
+    color: black;
+    height: 100%;
+    font-weight: normal;
+    font-size: 16px;
+    text-shadow: 2px 2px 4px #000;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    gap: 10px;
+    margin-top : 10px;
+    /* // background-color: rgba(0,2,2,0.5); */
+    /* // background-color: red; */
+    justify-content : flex-end;
+    white-space: nowrap;
+}
+
+
+
+.bottomStyle {
+  display: grid;
+  font-weight: normal;
+  color: black;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0em;
+  width: 30%;
+  text-shadow: 2px 2px 4px #000;
+  height: 50px;
+  margin-left: 3vw;
+  margin-right: 7vw;
+  font-size: 14px;
+}
+
+.styleBottom{
+    display : flex; 
+    color: white;
+    max-width: 100%;
+    margin-top : 20px;
+    margin-bottom : 20px;
+    /* backgroundColor : "yellow", */
+    margin-left: auto;
+    margin-right: auto;
+}
+.contactStyle {
+  /* backgroundColor : "pink", */
+  width: 500px;
+}
+
+  /* @media (min-width: 1300px) and (max-width: 1400px) { */
+  @media (max-width: 800px){
+    .bottomLeftStyle{
+      display: block ;
+    }
+    .contactStyle{
+      width: auto;
+    }
+  }
+  @media (max-width: 570px){
+    .headerStyle{
+      margin-right:50%;
+      margin-left:50%;
+      display: block;
+      align-items: center; /* 垂直居中 */
+      float: none;
+    }
+    .styleBottom{
+      display: block;
+    }
+    .contactStyle{
+      margin-top: 100px;
+      margin-left: 70px;
+      /* background-color : pink; */
+      width: auto;
+    }
+  }
+  
