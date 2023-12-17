@@ -1,6 +1,13 @@
 import {useState} from 'react';
 
-export default function SingleLabel({ label, onLabelClick }) {
+
+interface SingleLabelProps {
+  label: string,
+  onLabelClick :  Function;
+}
+
+
+const SingleLabel: React.FC<SingleLabelProps> = ({ label, onLabelClick })=> {
 
         const [isHovered, setIsHovered] = useState(false);
       
@@ -12,7 +19,7 @@ export default function SingleLabel({ label, onLabelClick }) {
           setIsHovered(false);
         };
       
-        const buttomHoveredStyle = {
+        const buttomHoveredStyle : React.CSSProperties = {
           color: isHovered ?  "#e7b101": "white",
           transition: "color 0.2s cubic-bezier(0.42, 0, 0.58, 1)", 
         };
@@ -30,5 +37,7 @@ export default function SingleLabel({ label, onLabelClick }) {
 };
       
 
+
+export default SingleLabel;
 
 

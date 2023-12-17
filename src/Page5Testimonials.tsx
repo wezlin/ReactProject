@@ -5,9 +5,18 @@ import Bottom from './Bottom';
 import Button from './Button';
 import TopVideo from './TopVideo';
 
-export default function Page5Testimonials(){
 
-    const testiData = [
+interface testiDataProps {
+    image: string,
+    testiName: string,
+    testiString: string,
+}
+
+const Page5Testimonials = ()=>{
+
+
+
+    const testiData : testiDataProps[] = [
         {image    : "https://sushiprivatecater.com/wp-content/uploads/2017/12/testi-img12.jpg",
          testiName: "ANGELA U.",
          testiString: "HIRE THESE THESE GUYS! No joke! I booked them to do dinner for my sister's bachelorette party and…"
@@ -67,7 +76,7 @@ export default function Page5Testimonials(){
     ];
 
 
-    const middleStyle = {
+    const middleStyle : React.CSSProperties= {
         width: "80vw",
         display: "flex",
         flexWrap: "wrap",
@@ -103,33 +112,34 @@ export default function Page5Testimonials(){
 
 }
 
-function Testi({image, testiName, testiString}){
 
-    const TestiStyle = {
+const Testi : React.FC<testiDataProps> = ({image, testiName, testiString}) =>{
+
+    const TestiStyle : React.CSSProperties = {
         display: "block",
         width: "35%",
-        maxwidth: "49vw",
+        maxWidth: "49vw",
         alignItems: "center",
         verticalAlign : "middle",
         // backgroundColor: "pink",
     }
 
-    const testiStringStyle = {
+    const testiStringStyle : React.CSSProperties = {
         display: "block",
         textAlign :"center",
-        margin: "auto",
+        // margin: "auto",
         width : "100%",
         verticalAlign : "middle",
         margin: "10px",
     }
-    const starStyle = {
+    const starStyle : React.CSSProperties = {
         display: "block",
         margin: "auto",
         width : "50%",
         verticalAlign : "middle",
         textAlign :"center",
     }
-    const imgStyle = {
+    const imgStyle : React.CSSProperties = {
         marginTop: "10px",
         display: "block",
         textAlign :"center",
@@ -158,21 +168,27 @@ function Testi({image, testiName, testiString}){
     )
 }
 
-function TopImage({StringTitle, VideoURL}) {
 
-    const videoContainerStyle = {
+interface TopImageProps{
+    StringTitle: string, 
+    VideoURL: string
+}
+
+const TopImage : React.FC<TopImageProps>= ({StringTitle, VideoURL}) => {
+
+    const videoContainerStyle : React.CSSProperties = {
         width: '100%',
         maxWidth: '100%',
         overflow: 'hidden',
       };
       
-      const videoStyle = {
+      const videoStyle  : React.CSSProperties= {
         width: '100%',
         maxHeight: "100vh",
         overflow: 'hidden',
         objectFit: 'cover',
       };
-    const innerTitleMain = {
+    const innerTitleMain  : React.CSSProperties= {
         position: "absolute",
         top: "300px",
         width: "65%",
@@ -188,7 +204,7 @@ function TopImage({StringTitle, VideoURL}) {
         marginTop :"20px",
         marginBottom: "10px",
         fontWeight: "500",
-        fontHeight: "1.1"
+        lineHeight: "1.1"
     };
     
 
@@ -201,3 +217,6 @@ function TopImage({StringTitle, VideoURL}) {
         </div>
     );
 }
+
+
+export default Page5Testimonials;

@@ -1,10 +1,23 @@
 import {useState} from 'react';
 import SingleLabel from "./SingleLabel";
-export default function Menu({menuPosition, onButtonClickMenu}){
+
+
+
+interface MenuProps {
+  menuPosition: string,
+  onButtonClickMenu: Function ;
+}
+
+
+const Menu :  React.FC<MenuProps> = ({menuPosition, onButtonClickMenu})=>{
     
  
 
-    const Pages = [{label: "Home"},
+  interface Page {
+    label: string;
+  }
+
+    const Pages : Page[] = [{label: "Home"},
                    {label: "About Us"}, 
                    {label: "Services"}, 
                    {label: "Menu"}, 
@@ -14,7 +27,7 @@ export default function Menu({menuPosition, onButtonClickMenu}){
                    {label: "Contact"}
                 ];
 
-    var select = {};
+    let select : string = "";
 
     if (menuPosition === "headerMenu") {
         select = "headerStyle";
@@ -33,3 +46,7 @@ export default function Menu({menuPosition, onButtonClickMenu}){
         </div>
       );
     };
+
+
+
+    export default Menu;

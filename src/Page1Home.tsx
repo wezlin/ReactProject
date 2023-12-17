@@ -5,8 +5,12 @@ import Bottom from './Bottom';
 import Button from './Button';
 import TopVideo from './TopVideo';
 
-export default function Page1Home({ onButtonClick }){
 
+interface Page1HomeProps{
+    onButtonClick : Function;
+}
+
+const Page1Home : React.FC<Page1HomeProps>= ({ onButtonClick }) => {
     return (
         <div>
             <TopVideo 
@@ -22,12 +26,13 @@ export default function Page1Home({ onButtonClick }){
 }
 
 
-
-function Middle({onButtonClickMiddle}){
+interface MiddleProps{
+    onButtonClickMiddle : Function;
+}
+const Middle : React.FC<MiddleProps> = ({onButtonClickMiddle}) => {
 
     
     return (
-
         <div>
             <div className="middle2Title">
                 <p >OUR SERVICES</p>
@@ -49,7 +54,8 @@ function Middle({onButtonClickMiddle}){
             </div>
             <Button inputString={"Read more"} 
                     handleMouseClick={onButtonClickMiddle} 
-                    label={"Services"} />
+                    label={"Services"} 
+                    />
 
             <div className="middle2Title">
                 <p>ABOUT M'S SUSHI CATERING</p>
@@ -81,7 +87,7 @@ function Middle({onButtonClickMiddle}){
             </div>
             <Button inputString={"Reserve Now"} 
                     handleMouseClick={onButtonClickMiddle} 
-                    label={"Contact"} 
+                    label={"Menu"} 
             />
             
         </div>
@@ -89,10 +95,17 @@ function Middle({onButtonClickMiddle}){
 }
 
 
-function MiddleObject({imageName,stringA, stringB}){
+
+interface MiddleObjectProps{
+    imageName : string,
+    stringA : string,
+    stringB : string,
+}
+
+const MiddleObject : React.FC<MiddleObjectProps> = ({imageName,stringA, stringB}) =>{
     
 
-    const middleObjectStyle = {
+    const middleObjectStyle : React.CSSProperties = {
         maxWidth: "24vw",
         width: "100%",
 
@@ -100,7 +113,7 @@ function MiddleObject({imageName,stringA, stringB}){
 
 
     
-    const picStyle = {
+    const picStyle : React.CSSProperties = {
         display: "flex",
         borderRadius: "50%",
         marginBottom: "10%",
@@ -114,14 +127,14 @@ function MiddleObject({imageName,stringA, stringB}){
     };
 
 
-    const stringStyle1 = {
+    const stringStyle1 : React.CSSProperties = {
         fontSize:"21px",
 	    textAlign:"center",
 	    color:"#FFB612",
 	    // fontWeight:"bold",
         // fontFamily: "AcherusGrotesque-Regular",
     };
-    const stringStyle2 = {
+    const stringStyle2: React.CSSProperties = {
         fontSize: "14px",
         marginTop: "10px",
         padding: "10px 10px",
@@ -147,8 +160,9 @@ function MiddleObject({imageName,stringA, stringB}){
 }
 
 
-function YoutubeVideo(){
-    const utubeStyle = {
+
+const YoutubeVideo = ()=>{
+    const utubeStyle : React.CSSProperties= {
         display: "flex",
         marginLeft : "10px",
         marginRight: "10px",
@@ -158,16 +172,16 @@ function YoutubeVideo(){
 
     return (
         <div style={utubeStyle}>
-            <div class="wpb_wrapper">
-	            <div class="wpb_video_widget wpb_content_element vc_clearfix   vc_video-aspect-ratio-169 vc_video-el-width-100 vc_video-align-center">
-		            <div class="wpb_wrapper">
-			            <div class="wpb_video_wrapper">
+            <div className="wpb_wrapper">
+	            <div className="wpb_video_widget wpb_content_element vc_clearfix   vc_video-aspect-ratio-169 vc_video-el-width-100 vc_video-align-center">
+		            <div className="wpb_wrapper">
+			            <div className="wpb_video_wrapper">
                             <iframe width="50%" 
                                     height="auto" 
                                     src="https://www.youtube.com/embed/videoseries?list=PL46iD8jLRJ3tTLHCH0StcUvKOvfE-F6qX" 
-                                    frameborder="0" 
+                                    frameBorder={0} 
                                     allow="autoplay; encrypted-media" 
-                                    allowfullscreen=""
+                                    allowFullScreen
                                     title="introduce">
                             </iframe>
                         </div>
@@ -191,8 +205,8 @@ function YoutubeVideo(){
 
 
 
-function MiddleGalleryImage() {
-    const galleryStyle = {
+const MiddleGalleryImage = () =>{
+    const galleryStyle : React.CSSProperties = {
         width: "90%",
         display: "flex",
         flexWrap: "wrap",
@@ -200,7 +214,7 @@ function MiddleGalleryImage() {
         margin: "0 auto",
     };
 
-    const scrollContainerStyle = {
+    const scrollContainerStyle  : React.CSSProperties= {
         width: "100vw",
         height: "100vh", 
         overflow: "auto",
@@ -209,13 +223,12 @@ function MiddleGalleryImage() {
         marginRight: "auto",
     };
 
-    const pictureStyle = {
+    const pictureStyle  : React.CSSProperties= {
         width: "45vw",
         height: "auto",
         flexBasis: "45%", 
         marginTop : "-5px", 
     };
-
 
     const images = [
         "gallery-image1-4-2-1-400x284.jpg",
@@ -239,8 +252,8 @@ function MiddleGalleryImage() {
     )
 }
 
-function Middle2(){
-    const Middle2Style = {
+const Middle2 = ()=> {
+    const Middle2Style : React.CSSProperties = {
         backgroundImage: `url(${process.env.PUBLIC_URL}/MSushi/Middle2bg-image.jpeg)`,
         
         backgroundRepeat: "no-repeat",
@@ -268,8 +281,8 @@ function Middle2(){
     )
 }
 
-function Bottom1(){
-    const Bottom1Style = {
+const Bottom1 = ()=>{
+    const Bottom1Style : React.CSSProperties = {
         backgroundImage: `url(${process.env.PUBLIC_URL}/MSushi/review-bg.jpg)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -281,19 +294,19 @@ function Bottom1(){
         // position: "relative",
         // backgroundColor: "orange",
     };
-    const BottomStringStyle ={
+    const BottomStringStyle  : React.CSSProperties={
         fontSize: "50px",
         // paddingTop: "15px",
         color: "white", 
         textAlign: "center",
     };
-    const Bottom1Left = {
+    const Bottom1Left  : React.CSSProperties= {
         width: "50%",
         // height:"auto",
         // backgroundColor : "pink",
         zIndex: "10",
     };
-    const Bottom1Right ={
+    const Bottom1Right : React.CSSProperties={
         display: "flex",
         width: "50%",
         justifyContent: "center", // x軸置中
@@ -317,3 +330,7 @@ function Bottom1(){
         </div>
     )
 }
+
+
+
+export default Page1Home;

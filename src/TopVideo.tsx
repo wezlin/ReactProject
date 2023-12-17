@@ -1,8 +1,13 @@
 
 
-export default function TopVideo({StringTitle, VideoURL}) {
+interface TopVideoProps{
+    StringTitle: string,
+    VideoURL : string;
+}
 
-    const topContainerStyle = {
+const TopVideo : React.FC<TopVideoProps> = ({StringTitle, VideoURL}) => {
+
+    const topContainerStyle : React.CSSProperties= {
         width: '100%',
         maxWidth: '100vw',
         overflow: 'hidden',
@@ -11,7 +16,7 @@ export default function TopVideo({StringTitle, VideoURL}) {
         // backgroundColor : 'pink',
     }
 
-    const videoContainerStyle = {
+    const videoContainerStyle : React.CSSProperties= {
         width: '100%',
         maxWidth: '100vw',
         overflow: 'hidden',
@@ -19,15 +24,14 @@ export default function TopVideo({StringTitle, VideoURL}) {
         // backgroundColor : 'gray',
       };
       
-      const videoStyle = {
+      const videoStyle : React.CSSProperties = {
         width: '100%',
         maxHeight: "100vh",
         overflow: 'hidden',
         objectFit: 'cover',
         // opacity: '0',
-        overflow :'hidden',
       };
-      const innerTitleContainer = {
+      const innerTitleContainer : React.CSSProperties = {
         width: '100%', // Adjust the width if needed
         height: 'auto', // Adjust the height if needed
         backgroundColor: 'green',
@@ -37,7 +41,7 @@ export default function TopVideo({StringTitle, VideoURL}) {
         
 
       }
-    const innerTitleMain = {
+    const innerTitleMain : React.CSSProperties = {
 
         // backgroundColor: "red",
         textAlign: "center",
@@ -47,7 +51,7 @@ export default function TopVideo({StringTitle, VideoURL}) {
         opacity: "0.8",
         fontSize: "48px",
         fontWeight: "500",
-        fontHeight: "1.1",
+        // lineHeight: "1.1",
         textShadow: "5px 5px 10px #000",
         color: "#fff",
         position: "absolute",
@@ -80,3 +84,5 @@ export default function TopVideo({StringTitle, VideoURL}) {
         </div>
     );
 }
+
+export default TopVideo ;

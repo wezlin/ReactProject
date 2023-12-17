@@ -4,7 +4,7 @@ import FontAwesomeIcon from './FontAwesomeIcon';
 import Bottom from './Bottom';
 import TopVideo from './TopVideo'
 
-export default function Page3Services(){
+const Page3Services = ()=>{
 
     return (
         <div>
@@ -19,9 +19,9 @@ export default function Page3Services(){
 }
 
 
-function Middle(){
+const Middle = ()=>{
 
-    const middleStyle = {
+    const middleStyle : React.CSSProperties= {
         width: "90vw",
         // margin: "0 auto",  
        //  display: "flex",
@@ -30,7 +30,7 @@ function Middle(){
         // marginRight: "auto",
         // gap: "2vw",
     }
-    const stringStyle2 = {
+    const stringStyle2 : React.CSSProperties= {
         fontSize: "14px",
         marginTop: "10px",
         padding: "10px 10px",
@@ -73,10 +73,18 @@ function Middle(){
     )
 }
 
-function MiddleObject({imageName,stringA, inputStringBox }){
+
+
+interface MiddleObjectProps{
+    imageName : string,
+    stringA : string, 
+    inputStringBox? : string 
+}
+
+const MiddleObject: React.FC<MiddleObjectProps> = ({imageName,stringA, inputStringBox })=>{
     
 
-    const picStyle = {
+    const picStyle : React.CSSProperties= {
         // display: "flex",
         // marginBottom: "10%",
         marginTop:"10%",
@@ -87,7 +95,7 @@ function MiddleObject({imageName,stringA, inputStringBox }){
     };
 
 
-    const stringStyle1 = {
+    const stringStyle1 : React.CSSProperties= {
         fontSize:"21px",
 	    textAlign:"center",
 	    color:"#000",
@@ -110,7 +118,7 @@ function MiddleObject({imageName,stringA, inputStringBox }){
 
 
 
-function StringBoxA(){
+const StringBoxA= ()=> {
     return (
         <div>
             <div>Make your wedding unforgettable with the best wedding event catering in Los Angeles, Calabasas, Irvine, Santa Monica, Laguna Niguel, Bay Area, and Vancouver Canada.</div>
@@ -129,7 +137,7 @@ function StringBoxA(){
 }
 
 
-function StringBoxB(){
+const StringBoxB = ()=>{
     return (
         <div>
             <div>At M's Sushi Catering, we understand that every element of an incredible party or private event must be spectacular – especially the food!</div>
@@ -141,7 +149,7 @@ function StringBoxB(){
 }
 
 
-function StringBoxC(){
+const StringBoxC =() =>{
     return (
         <div>
             <div>There's no better way to dazzle your supervisors and boost employee morale than offering one-of-a-kind sushi catering at your next corporate event.</div>
@@ -152,7 +160,7 @@ function StringBoxC(){
     )
 }
 
-function StringBoxD(){
+const StringBoxD = ()=>{
     return (
         <div>
             <div>M's Sushi Catering is scaled to handle large events where multiple caterings are required. We're happy to collaborate with large event planners.</div>
@@ -161,3 +169,6 @@ function StringBoxD(){
         </div>
     )
 }
+
+
+export default  Page3Services;

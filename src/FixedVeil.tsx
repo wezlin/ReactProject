@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 export default function FixedVeil() {
  
-  const [zIndex, setZIndex] = useState(1000);
-  const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 1)"); 
+  const [zIndex, setZIndex] = useState<number>(1000);
+  const [backgroundColor, setBackgroundColor] = useState<string>("rgba(0, 0, 0, 1)"); 
 
 
 
@@ -12,7 +12,7 @@ export default function FixedVeil() {
     
     const opacityTimeoutId = setTimeout(() => {
       setBackgroundColor("rgba(0, 0, 0, 0)"); 
-    }, 500); 
+    }, 500) ; 
 
     const timeoutId = setTimeout(() => {
       setZIndex(-1000);
@@ -24,7 +24,7 @@ export default function FixedVeil() {
     };
   }, []);
 
-  const veilHideStyle = {
+  const veilHideStyle : React.CSSProperties= {
     position: 'fixed', 
     zIndex: zIndex,
     width: '100vw',

@@ -1,17 +1,17 @@
 import {useState, useEffect} from 'react';
 import FontAwesomeIcon from './FontAwesomeIcon';
 
-
 export default function SideButton(){
 
 
-    const sideButtonStyle = {
+    const sideButtonStyle: React.CSSProperties = {
         position: "fixed",
         zIndex: "10000",
         top: "40vh",
         right: "0",     
     };
 
+    
 
     return(
         <div>
@@ -41,7 +41,13 @@ export default function SideButton(){
 };
 
 
-function SideIcon({faIconName, backgroundColor, URL}){
+interface SideIconArg {
+    faIconName: string;
+    backgroundColor: string; 
+    URL: string;
+  }
+
+function SideIcon({faIconName, backgroundColor, URL}: SideIconArg){
 
 
 
@@ -57,11 +63,11 @@ function SideIcon({faIconName, backgroundColor, URL}){
       };
     
 
-      const iconStyle = {
+      const iconStyle : React.CSSProperties= {
         display:"flex", 
         gap: "10px", 
         color: "white",
-        width: "180px",
+        // width: "180px",
         textTransform: "uppercase",
         backgroundColor : backgroundColor,
         textDecoration: "none",
@@ -87,6 +93,10 @@ function SideIcon({faIconName, backgroundColor, URL}){
                     color: "white"
                 }}
             />
+
+
+
+            
             <div style={{
                 margin: "5px",
             }}>

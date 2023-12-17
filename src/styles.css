@@ -132,9 +132,14 @@
     }
     .contactStyle{
       margin-top: 100px;
-      margin-left: 70px;
+      margin-right:auto;
+      margin-left:auto;
       /* background-color : pink; */
       width: auto;
+    }
+    .bottomContactTitleStyle{
+      font-size: 32px;
+       
     }
   }
   

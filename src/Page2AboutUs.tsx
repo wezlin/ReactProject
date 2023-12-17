@@ -3,7 +3,10 @@ import Picture from './Picture';
 import FontAwesomeIcon from './FontAwesomeIcon';
 import Button from './Button';   
 import TopVideo from './TopVideo';
-export default function Page2AboutUs(){
+
+
+
+const Page2AboutUs= ()=>{
     
     return (
         <div>
@@ -16,21 +19,18 @@ export default function Page2AboutUs(){
     )
 }
 
-function Middle(){
+const Middle = ()=>{
 
-    const handleButtonClick = () => {
-        window.open('http://voyagela.com/interview/meet-jackson-mou-sushi-private-catering-orange-county/', '_blank');
-    };
-    const sectionTitleStyle = {
+    const sectionTitleStyle : React.CSSProperties= {
         fontWeight: "bold",
     };
-    const textCoverPic ={
+    const textCoverPic  : React.CSSProperties={
         display: "block",
         textAlign: "justify",
         margin: '40px', 
     };
 
-    const middle2ContainerStyle = {
+    const middle2ContainerStyle  : React.CSSProperties= {
         position: "relative",
         overflow: "hidden", 
     };
@@ -55,8 +55,8 @@ function Middle(){
 
             <div style={{marginTop:"50px", marginBottom:"50px",}}>
                 <Button inputString={"AS FEATURED IN VOYAGELA"}
-                        onClickURL={handleButtonClick}
-                        isLink = {"true"}
+                        onClickURL={'http://voyagela.com/interview/meet-jackson-mou-sushi-private-catering-orange-county/'}
+                        isLink = {true}
                 />
             </div>
 
@@ -87,8 +87,8 @@ function Middle(){
 
 
 
-function YoutubeVideo(){
-    const utubeStyle = {
+const YoutubeVideo = ()=>{
+    const utubeStyle  : React.CSSProperties = {
         display: "flex",
         justifyContent: "center",
         width: "70vw",
@@ -99,17 +99,16 @@ function YoutubeVideo(){
 
     return (
         <div style={utubeStyle}>
-            <div class="wpb_wrapper">
-                <div class="wpb_video_widget wpb_content_element vc_clearfix   vc_video-aspect-ratio-169 vc_video-el-width-100 vc_video-align-center">
-                    <div class="wpb_wrapper">
-                        <div class="wpb_video_wrapper">
+            <div className="wpb_wrapper">
+                <div className="wpb_video_widget wpb_content_element vc_clearfix   vc_video-aspect-ratio-169 vc_video-el-width-100 vc_video-align-center">
+                    <div className="wpb_wrapper">
+                        <div className="wpb_video_wrapper">
                             <iframe width="640" 
                                     height="480" 
                                     src="https://www.youtube.com/embed/Cunn3Y7MDrA?feature=oembed" 
-                                    frameborder="0" 
-                                    allow="autoplay; encrypted-media" 
-                                    gesture="media" 
-                                    allowfullscreen=""
+                                    frameBorder="0" 
+                                    allow="autoplay; encrypted-media ; gesture=media " 
+                                    allowFullScreen
                                     title="introduce">
                             </iframe>
                         </div>
@@ -123,8 +122,8 @@ function YoutubeVideo(){
 
 
 
-function MiddleGalleryImage() {
-    const galleryStyle = {
+const MiddleGalleryImage= ()=> {
+    const galleryStyle : React.CSSProperties= {
         width: "90%",
         display: "flex",
         flexWrap: "wrap",
@@ -132,7 +131,7 @@ function MiddleGalleryImage() {
         margin: "0 auto",
     };
 
-    const scrollContainerStyle = {
+    const scrollContainerStyle  : React.CSSProperties= {
         width: "100vw",
         height: "100vh", 
         overflow: "auto",
@@ -141,7 +140,7 @@ function MiddleGalleryImage() {
         marginRight: "auto",
     };
 
-    const pictureStyle = {
+    const pictureStyle  : React.CSSProperties= {
         width: "45vw",
         height: "auto",
         flexBasis: "45%", 
@@ -171,8 +170,8 @@ function MiddleGalleryImage() {
     )
 }
 
-function Middle2(){
-    const Middle2Style = {
+const Middle2 = ()=>{
+    const Middle2Style  : React.CSSProperties= {
         backgroundImage: "url('/MSushi/Middle2bg-image.jpeg')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -199,15 +198,15 @@ function Middle2(){
     )
 }
 
-function Bottom1(){
-    const Bottom1Style = {
+const Bottom1 = ()=>{
+    const Bottom1Style  : React.CSSProperties= {
         backgroundImage: `url('/MSushi/review-bg.jpg')`,
         backgroundRepeat: 'no-repeat',
         display : "flex",
         justifyContent: "center",
         position: "relative",
     };
-    const BottomStringStyle ={
+    const BottomStringStyle : React.CSSProperties ={
         width: "50%",
         fontSize: "54px",
         paddingTop: "15px",
@@ -221,3 +220,6 @@ function Bottom1(){
         </div>
     )
 }
+
+
+export default Page2AboutUs;

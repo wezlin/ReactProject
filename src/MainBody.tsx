@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import Picture from './Picture';
+// import React, { FC } from 'react';
 import FontAwesomeIcon from './FontAwesomeIcon';
 import Bottom from './Bottom';
 import NavBar from './NavBar';
@@ -13,16 +14,17 @@ import Page6Social from './Page6Social';
 // import Page7Blog from './Page7Blog';
 // import Page8Contact from './Page8Contact';
 
-export default function Body(){
+export default function MainBody(){
 
-    const [reDirection, setReDirection] = useState(null);
-    const handleButtonClick = (buttonName) => {
+    const [reDirection, setReDirection] = useState<string| null>(null);
+    const handleButtonClick = (buttonName : string): void => {
         setReDirection(buttonName);
     };
-    var content = null; 
+    let content: React.ReactElement<any, any> | null = null;
+     
     switch (reDirection) {
         case 'Home':
-            content = <Page1Home />;
+            content = <Page1Home onButtonClick={handleButtonClick}/>;
             break;
         case 'About Us':
             content = <Page2AboutUs />;
@@ -38,9 +40,11 @@ export default function Body(){
             break;
         case 'Social':
             content = <Page6Social />;
+            break;
         // Add more cases for other pages if needed
         default:
             content = <Page1Home onButtonClick={handleButtonClick}/>;
+            break;
     }
 
     return (

@@ -7,9 +7,13 @@ import TopVideo from './TopVideo';
 
 
 
-export default function Page6Social(){
+const Page6Social = ()=>{
     return (
         <div></div>
            
     );
 }
+
+
+
+export default Page6Social;

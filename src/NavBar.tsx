@@ -5,9 +5,12 @@ import Menu from './Menu';
 import ContactInfoTop from './ContactInfoTop';
 import './styles.css';
 
-export default function NavBar({onButtonClick}){
 
-    const [scrollY, setScrollY] = useState(window.scrollY);
+
+
+const NavBar: React.FC<any> = ({ onButtonClick }) =>{
+
+    const [scrollY, setScrollY] = useState<number>(window.scrollY);
 
 
     const handleScroll = () => {
@@ -24,7 +27,7 @@ export default function NavBar({onButtonClick}){
 
 
 
-    const NavContactInfoStyle = {
+    const NavContactInfoStyle : React.CSSProperties= {
         position: "relative",
         height: "100%",
         // width: "500px",
@@ -39,7 +42,7 @@ export default function NavBar({onButtonClick}){
 
     };
 
-    const headerStyle  = {
+    const headerStyle  : React.CSSProperties= {
         zIndex:"100", 
         width: "100%",
         height: "auto",
@@ -47,7 +50,7 @@ export default function NavBar({onButtonClick}){
         // backgroundColor: "pink",
     };
 
-    const headerStylePullDown = {
+    const headerStylePullDown : React.CSSProperties= {
         zIndex:"100",
         width: "100%",
         height: "auto",
@@ -58,45 +61,38 @@ export default function NavBar({onButtonClick}){
         // backgroundColor: "pink",
     };
 
-
-
-
-
-    const navBarUpperStyle1 ={
+    const navBarUpperStyle1 : React.CSSProperties={
         display: "flex",      
         height: "100%",  
         textAlign:"center",
-        display: "flex", 
         alignItems: "center",
         justifyContent: "center",
     }
 
 
-    const NavBarUpperLeft1 = {
+    const NavBarUpperLeft1 : React.CSSProperties= {
         width: "30%",
     };
 
-    const NavBarUpperRight1 = {
+    const NavBarUpperRight1 : React.CSSProperties= {
         width: "70%",
     };
 
-    const NavBarPicContainer = {
+    const NavBarPicContainer : React.CSSProperties= {
         position: "relative",
         width: "20vw",
         height: "100%",
         display: "flex",
-
         textAlign:"center",
-        display: "flex", 
         alignItems: "center",
         justifyContent: "center",
     };
-    const navBarIconStyle1 = {
+    const navBarIconStyle1 : React.CSSProperties= {
         width: "100%",
         height: "auto",
 
     };
-    const yelpUpperStyle1 = {
+    const yelpUpperStyle1 : React.CSSProperties= {
         width: "100%",
         height: "auto",
 
@@ -104,12 +100,12 @@ export default function NavBar({onButtonClick}){
     var navBarContainerStyleSelector = scrollY > 230 ? headerStylePullDown : headerStyle;
 
 
-    const navBarContainerStyle2 = {
-        // backgroundColor : "yellow",
-        
+    const navBarContainerStyle2: React.CSSProperties = {
+        // backgroundColor : "yellow",     
         marginLeft : "5%",
         marginRight: "5%",
     };
+
     return (
         <div style={navBarContainerStyleSelector}>
             <div style={navBarContainerStyle2}>    
@@ -137,9 +133,14 @@ export default function NavBar({onButtonClick}){
     );
 }
 
+export default NavBar;
 
 
-function YelpUpper({style}) {
+
+interface YelpUpperProps {
+    style: React.CSSProperties;
+  }
+function YelpUpper({ style }: YelpUpperProps) {
     return (
             <a
                 href="https://www.yelp.com/biz/sushi-private-catering-hacienda-heights?utm_medium=badge_star_rating_reviews&amp;utm_source=biz_review_badge"
@@ -150,7 +151,5 @@ function YelpUpper({style}) {
             </a>
     );
 }
-
-
 
 

@@ -5,8 +5,17 @@ import Menu from './Menu';
 import ContactInfoBottom from './ContactInfoBottom';
 import './index.css';
 import './styles.css';
-export default function Bottom ({onButtonClick}){
-    const bottomBackground = {
+
+
+
+interface BottomProps {
+    onButtonClick : Function;
+}
+
+
+const Bottom : React.FC<BottomProps> = ({onButtonClick}) =>{
+
+    const bottomBackground : React.CSSProperties= {
         backgroundImage:`url(${process.env.PUBLIC_URL}/MSushi/asfalt-light1.png)`,
         backgroundSize: 'auto 100%',
         backgroundRepeat: 'repeat',
@@ -17,12 +26,12 @@ export default function Bottom ({onButtonClick}){
         maxWidth: "100vw",
 
     };
-    const bottomContainer = {
+    const bottomContainer : React.CSSProperties= {
         display : "flex", 
         width: '100vw',
         // backgroundColor: "green",
     };
-    const underline = {
+    const underline : React.CSSProperties= {
         left: "0",
         bottom: "-7px",
         width: "50px",
@@ -51,8 +60,8 @@ export default function Bottom ({onButtonClick}){
                     </div>
                     
                     <div className="contactStyle">
-                        <div>CONTACT</div>
-                        <div style={underline}></div>
+                        <div className="bottomContactTitleStyle">CONTACT</div>
+                        <div className="bottomContactTitleStyle" style={underline}></div>
                         <ContactInfoBottom/>
                     </div>
                 </div>
@@ -82,3 +91,6 @@ function BottomCopyRight(){
         </div>
     )
 }
+
+
+export default Bottom;
